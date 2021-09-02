@@ -2,10 +2,19 @@ import Link from 'next/link'
 import Router, { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import { CommentIcon, FavouriteIcon, MoreIcon, RetweetIcon, ShareIcon } from '../icons'
+import TweetImages from './tweet-images'
+import TweetModal from './tweet-modal'
 
-function HomeTweet({ id, imgs, text, quotation, noIcons, open, close }) {
+function HomeTweet({ id, imgs, text, quotation, noIcons }) {
+    const router = useRouter()
+
     return (
         <>
+            {
+                router.query.id === id &&
+                <TweetModal imgs={imgs} />
+            }
+
             <div className="flex pt-3 border w-full border-r px-4 hover:bg-gray-50 cursor-pointer">
                 <Link href="/username">
                     <a className="bg-black rounded-full w-12 h-12 flex-shrink-0"></a>
@@ -27,29 +36,23 @@ function HomeTweet({ id, imgs, text, quotation, noIcons, open, close }) {
                             </button>
                         }
                     </div>
-                    <div onClick={() => Router.push('/username/status/123456')} className="text-sm select-all">
+                    <div onClick={() => Router.push(`/username/status/${id}`)} className="text-sm">
                         {text}
                     </div>
                     {
-                        imgs &&
-                        <div className="pt-4 h-auto object-center w-full">
-                            <Link
-                                href={`/?photoId=1`}
-                                as={`/username/status/123456/photo/1`}>
-                                <a href="#">
-                                    <img className="rounded-xl" src={imgs} />
-                                </a>
-                            </Link>
-                        </div>
+                        imgs && imgs.length > 0 &&
+                        <TweetImages imgs={imgs} id={id}/>
                     }
                     {
                         quotation &&
                         <div className="border mt-3 rounded-lg">
                             <HomeTweet
-                                imgs='https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg'
+                                imgs={
+                                    ['https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg']
+                                }
                                 noIcons
-                                text={`
-                            asdfgh`} />
+                                id={id}
+                                text="aaaaaaaaaaaaaaaaaaaaaa" />
                         </div>
                     }
                     {

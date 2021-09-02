@@ -12,7 +12,7 @@ function ProfileHeader() {
 
                 <a className="absolute left-4 -bottom-1/5 -translate-y-1/2 border-2 border-white rounded-full">
                     <img className="h-[22vw] w-[22vw] sm:h-[134px] sm:w-[134px] 
-                 rounded-full" src="https://lh3.googleusercontent.com/proxy/mLCGroLqUuYpW4Fi8ManFEFUL6Y7LN85yYxUfYWFIxjVxJnlLvsvewQlU8s3pO4coCYbsbJiLi2hooCIJD6GOzUhBwVfDAt4WneORIlpBU3qOxLq_MU3uk254s0gp2df3NRkABkkyKL71chYjSdfQo16fknbVU9Uhg" />
+                 rounded-full" src="https://st.depositphotos.com/2101611/4338/v/600/depositphotos_43381243-stock-illustration-male-avatar-profile-picture.jpg" />
                 </a>
             </div>
 

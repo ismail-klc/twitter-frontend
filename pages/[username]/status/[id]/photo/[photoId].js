@@ -15,9 +15,6 @@ function TweetPhotoDetail() {
     return (
         <div>
             <Home />
-            <Modal close={handleClose}>
-                asdf
-            </Modal>
         </div>
     )
 }

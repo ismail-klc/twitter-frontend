@@ -8,7 +8,7 @@ function TopBar({ children, showProfile }) {
 
     return (
         <>
-            <div className="h-[53px] border sticky bg-white flex items-center space-x-6 px-4 top-0">
+            <div className="h-[53px] border sticky bg-white z-20 flex items-center space-x-6 px-4 top-0">
                 {
                     showProfile && width < 500 &&
                     <div onClick={() => setShowSidebar(!showSidebar)}

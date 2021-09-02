@@ -12,7 +12,7 @@ function Sidebar() {
 
     return (
         <div className="flex-col xl:w-[250px] hidden no-mobile:flex
-        bg-white items-stretch sticky h-screen pr-4" >
+        bg-white items-stretch sticky top-0 h-screen pr-4" >
             <Link href="/">
                 <a className="p-3 text-blue-500 rounded-full inline-flex self-end xl:self-start hover:bg-blue-100 mt-1">
                     <TwitterIcon />

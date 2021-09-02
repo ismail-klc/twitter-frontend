@@ -5,7 +5,7 @@ import { CommentIcon, FavouriteIcon, MoreIcon, RetweetIcon, ShareIcon } from '..
 
 function TweetDetail({ id, imgs, text }) {
     return (
-        <div className="flex pt-3 flex-col border-r">
+        <div className="flex pt-3 flex-col border-r border-l">
             <div className="flex pr-1 mb-3 flex-1 px-4">
                 <div className="bg-black rounded-full w-12 h-12 flex-shrink-0"></div>
                 <div className="flex items-start flex-row flex-1 ml-2">
