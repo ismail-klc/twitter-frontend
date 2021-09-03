@@ -22,9 +22,9 @@ function TweetModal() {
 
         return (
             <Modal show={!!router.query.photoId} close={() => router.back()}>
-                <div className="">
+                <div>
                     <img
-                        className=""
+                        className="max-h-[80vh] object-fill"
                         src={image} />
                     <div className="flex text-white  justify-around py-4">
                         <button className="rounded-full hover:bg-blue-200 p-2">
