@@ -22,11 +22,9 @@ function TweetModal() {
     }
 
     useEffect(() => {
-        console.log(router);
-
         getPath()
         getPrevUrl()
-        setTweet(tweets.find(x => x.id === router.query.id))
+        setTweet(tweets.find(x => x.id === router.query.tweetId))
         setShow(!!router.query.photoId)
 
     }, [router.query])
@@ -51,7 +49,7 @@ function TweetModal() {
         let orgPath = router.pathname + "?"
 
         for (const q of Object.keys(router.query)) {
-            if (q === 'id' || q === 'photoId') {
+            if (q === 'photoId' || q === 'tweetId') {
                 continue
             }
             orgPath += q + "=" + router.query[q] + "&"
@@ -67,7 +65,7 @@ function TweetModal() {
                     <div className="relative text-white">
                         {
                             router.query.photoId !== '1' &&
-                            <Link href={`${path}id=${tweet.id}&photoId=${parseInt(router.query.photoId) - 1}`}
+                            <Link href={`${path}tweetId=${tweet.id}&photoId=${parseInt(router.query.photoId) - 1}`}
                                 as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) - 1}`}
                                 replace>
                                 <a className="p-4 bg-gray-700 hover:bg-gray-500 rounded-lg absolute left-0 top-1/2">
@@ -80,7 +78,7 @@ function TweetModal() {
                             src={image} />
                         {
                             router.query.photoId !== tweet.images.length.toString() &&
-                            <Link href={`${path}id=${tweet.id}&photoId=${parseInt(router.query.photoId) + 1}`}
+                            <Link href={`${path}tweetId=${tweet.id}&photoId=${parseInt(router.query.photoId) + 1}`}
                                 as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) + 1}`}
                                 replace>
                                 <a className="p-4 bg-gray-700 hover:bg-gray-500 rounded-lg absolute right-0 top-1/2">

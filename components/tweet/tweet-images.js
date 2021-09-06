@@ -5,7 +5,6 @@ import { tweets } from '../../pages'
 
 function ImageTemplate({ imgCount, children }) {
     if (imgCount === 1) {
-
         return (
             <div className={"mt-4 grid h-72 max-h-[40vw]"}>
                 {children}
@@ -28,7 +27,7 @@ function TweetImages({ id }) {
     useEffect(() => {
         getTweet()
         getPath()
-    }, [])
+    }, [id])
 
     const getTweet = () => {
         setTweet(tweets.find(x => x.id === id))
@@ -38,7 +37,7 @@ function TweetImages({ id }) {
         let orgPath = router.pathname + "?"
 
         for (const q of Object.keys(router.query)) {
-            if (q === 'id') {
+            if (q === 'photoId' || q === 'tweetId') {
                 continue
             }
             orgPath += q + "=" + router.query[q] + "&"
@@ -53,7 +52,7 @@ function TweetImages({ id }) {
                     tweet.images.map((img, index) => (
                         <Link
                             key={index}
-                            href={`${path}id=${id}&photoId=${index + 1}`}
+                            href={`${path}tweetId=${id}&photoId=${index + 1}`}
                             as={`/username/status/${id}/photo/${index + 1}`}
                         >
                             <a className={"relative p-0.5" + (tweet.images.length === 3 ? " first:row-span-2" : "")}>

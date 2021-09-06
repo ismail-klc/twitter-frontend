@@ -29,13 +29,13 @@ function HomeTweet({ id, imgs, text, quotation, noIcons }) {
                         }
                     </div>
                     <Link href={`/username/status/${id}`}>
-                    <div className="text-sm">
-                        {text}
-                    </div>
+                        <a className="text-sm">
+                            {text}
+                        </a>
                     </Link>
                     {
                         imgs && imgs.length > 0 &&
-                        <TweetImages id={id}/>
+                        <TweetImages id={id} />
                     }
                     {
                         quotation &&

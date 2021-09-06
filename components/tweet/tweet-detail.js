@@ -3,17 +3,18 @@ import { tweets } from '../../pages'
 import HomeTweet from './tweet'
 import { CommentIcon, FavouriteIcon, MoreIcon, RetweetIcon, ShareIcon } from '../icons'
 import { useRouter } from 'next/router'
+import TweetImages from './tweet-images'
 
-function TweetDetail({ id, imgs, text }) {
+function TweetDetail() {
     const router = useRouter()
     const [tweet, setTweet] = useState(null)
 
     useEffect(() => {
-        setTweet(tweets.find(x => x.id === router.query.id))
-    }, [router.query.id])
+        const newtweet=tweets.find(x => x.id === router.query.id)
+        setTweet(newtweet)
+    }, [router.query])
 
     if (tweet) {
-
         return (
             <div className="flex pt-3 flex-col border-r border-l">
                 <div className="flex pr-1 mb-3 flex-1 px-4">
@@ -36,7 +37,7 @@ function TweetDetail({ id, imgs, text }) {
                 {
                     tweet.images.length > 0 &&
                     <div className="pt-4 px-4">
-                        <img className="rounded-xl" src={tweet.images[0]} />
+                        <TweetImages id={tweet.id} />
                     </div>
                 }
 

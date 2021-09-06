@@ -1,4 +1,3 @@
-import Modal from '../modal'
 import Head from 'next/head'
 import React from 'react'
 import BottomBar from '../bars/bottom-bar'
@@ -10,6 +9,7 @@ function Layout({ children, title }) {
         <>
             <Head>
                 <title>{title}</title>
+                <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"></meta>
             </Head>
 
             <div className="min-h-screen max-w-[78rem] mx-auto flex justify-center">
@@ -22,7 +22,7 @@ function Layout({ children, title }) {
             </div>
 
             <BottomBar />
-            
+
         </>
     )
 }
