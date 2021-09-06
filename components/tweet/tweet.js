@@ -5,15 +5,12 @@ import { CommentIcon, FavouriteIcon, MoreIcon, RetweetIcon, ShareIcon } from '..
 import TweetImages from './tweet-images'
 import TweetModal from './tweet-modal'
 
-function HomeTweet({ id, imgs, text, quotation, noIcons }) {
+function HomeTweet({ id, imgs, text, quotation, noIcons, prevUrl }) {
     const router = useRouter()
 
     return (
         <>
-            {
-                router.query.id === id &&
-                <TweetModal imgs={imgs} />
-            }
+            
 
             <div className="flex pt-3 border w-full border-r px-4 hover:bg-gray-50 cursor-pointer">
                 <Link href="/username">
@@ -36,9 +33,11 @@ function HomeTweet({ id, imgs, text, quotation, noIcons }) {
                             </button>
                         }
                     </div>
-                    <div onClick={() => Router.push(`/username/status/${id}`)} className="text-sm">
+                    <Link href={`/username/status/${id}`}>
+                    <div className="text-sm">
                         {text}
                     </div>
+                    </Link>
                     {
                         imgs && imgs.length > 0 &&
                         <TweetImages imgs={imgs} id={id}/>
