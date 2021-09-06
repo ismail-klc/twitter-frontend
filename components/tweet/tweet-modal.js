@@ -68,7 +68,8 @@ function TweetModal() {
                         {
                             router.query.photoId !== '1' &&
                             <Link href={`${path}id=${tweet.id}&photoId=${parseInt(router.query.photoId) - 1}`}
-                                as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) - 1}`}>
+                                as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) - 1}`}
+                                replace>
                                 <a className="p-4 bg-gray-700 hover:bg-gray-500 rounded-lg absolute left-0 top-1/2">
                                     &#10094;
                                 </a>
@@ -80,7 +81,8 @@ function TweetModal() {
                         {
                             router.query.photoId !== tweet.images.length.toString() &&
                             <Link href={`${path}id=${tweet.id}&photoId=${parseInt(router.query.photoId) + 1}`}
-                                as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) + 1}`}>
+                                as={`/username/status/${tweet.id}/photo/${parseInt(router.query.photoId) + 1}`}
+                                replace>
                                 <a className="p-4 bg-gray-700 hover:bg-gray-500 rounded-lg absolute right-0 top-1/2">
                                     &#10095;
                                 </a>

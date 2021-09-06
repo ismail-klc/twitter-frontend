@@ -54,7 +54,8 @@ function TweetImages({ id }) {
                         <Link
                             key={index}
                             href={`${path}id=${id}&photoId=${index + 1}`}
-                            as={`/username/status/${id}/photo/${index + 1}`}>
+                            as={`/username/status/${id}/photo/${index + 1}`}
+                        >
                             <a className={"relative p-0.5" + (tweet.images.length === 3 ? " first:row-span-2" : "")}>
                                 <img className="object-cover  h-full absolute w-full" src={img} />
                             </a>
