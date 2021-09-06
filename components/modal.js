@@ -11,9 +11,7 @@ function Modal({ children, close, show }) {
                     className="top-4 left-4 fixed bg-gray-100 rounded-full p-2 z-20">
                     <CloseIcon />
                 </button>
-                <div>
-                    {children}
-                </div>
+                {children}
             </div>
         )
     }

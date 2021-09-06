@@ -15,10 +15,15 @@ function TweetModal() {
 
     const handleClose = () => {
         setShow(false)
-        router.replace(prevUrl)
+
+        if (prevUrl !== router.asPath){
+            router.replace(prevUrl)
+        }
     }
 
     useEffect(() => {
+        console.log(router);
+
         getPath()
         getPrevUrl()
         setTweet(tweets.find(x => x.id === router.query.id))

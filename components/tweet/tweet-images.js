@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
+import { tweets } from '../../pages'
 
 function ImageTemplate({ imgCount, children }) {
     if (imgCount === 1) {
@@ -19,13 +20,19 @@ function ImageTemplate({ imgCount, children }) {
     )
 }
 
-function TweetImages({ imgs, id }) {
+function TweetImages({ id }) {
     const router = useRouter()
     const [path, setPath] = useState(null)
+    const [tweet, setTweet] = useState(null)
 
     useEffect(() => {
+        getTweet()
         getPath()
     }, [])
+
+    const getTweet = () => {
+        setTweet(tweets.find(x => x.id === id))
+    }
 
     const getPath = () => {
         let orgPath = router.pathname + "?"
@@ -36,27 +43,28 @@ function TweetImages({ imgs, id }) {
             }
             orgPath += q + "=" + router.query[q] + "&"
         }
-
         setPath(orgPath)
     }
 
-    return (
-        <ImageTemplate imgCount={imgs.length}>
-            {
-                imgs.map((img, index) => (
-                    <Link
-                        key={index}
-                        href={`${path}id=${id}&photoId=${index + 1}`}
-                        as={`/username/status/${id}/photo/${index + 1}`}
-                        passHref>
-                        <a className={"relative p-0.5" + (imgs.length === 3 ? " first:row-span-2" : "")}>
-                            <img className="object-cover  h-full absolute w-full" src={img} />
-                        </a>
-                    </Link>
-                ))
-            }
-        </ImageTemplate>
-    )
+    if (tweet) {
+        return (
+            <ImageTemplate imgCount={tweet.images.length}>
+                {
+                    tweet.images.map((img, index) => (
+                        <Link
+                            key={index}
+                            href={`${path}id=${id}&photoId=${index + 1}`}
+                            as={`/username/status/${id}/photo/${index + 1}`}>
+                            <a className={"relative p-0.5" + (tweet.images.length === 3 ? " first:row-span-2" : "")}>
+                                <img className="object-cover  h-full absolute w-full" src={img} />
+                            </a>
+                        </Link>
+                    ))
+                }
+            </ImageTemplate>
+        )
+    }
+    return null
 }
 
 export default TweetImages

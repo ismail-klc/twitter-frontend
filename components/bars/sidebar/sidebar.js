@@ -28,6 +28,10 @@ function Sidebar() {
                     ))
                 }
 
+                <Link
+                href="/"
+                as="/compose/tweet"
+                >
                 <a className="p-3 flex items-center text-white  self-center xl:self-stretch xl:justify-center
                 bg-green-500 hover:bg-green-600 rounded-full">
                     <span className="xl:hidden">
@@ -35,6 +39,7 @@ function Sidebar() {
                     </span>
                     <span className="hidden xl:block">Tweetle</span>
                 </a>
+                </Link>
 
             </div>
 

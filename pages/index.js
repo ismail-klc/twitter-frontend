@@ -4,6 +4,7 @@ import Layout from '../components/layout/layout'
 import TopBar from '../components/bars/top-bar'
 import TweetForm from '../components/tweet/tweet_form'
 import { useRouter } from 'next/router'
+import TweetFormModal from '../components/tweet/tweet-form-modal'
 
 export const tweets = [
   {
@@ -53,8 +54,6 @@ export const tweets = [
 ]
 
 export default function Home() {
-  const router = useRouter()
-
   return (
     <Layout title="En Son Tweetler / Twitter">
 
@@ -70,14 +69,13 @@ export default function Home() {
         {
           tweets.map(t => (
             <HomeTweet
-              key={t.id} imgs={t.images} text={t.text} id={t.id}/>
+              key={t.id} imgs={t.images} text={t.text} id={t.id} />
           ))
         }
-        {/* <HomeTweet quotation  imgs={[]} id={"7"}/> */}
 
       </div>
 
-
+      <TweetFormModal />
     </Layout>
   )
 }

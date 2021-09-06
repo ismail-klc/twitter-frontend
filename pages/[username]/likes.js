@@ -8,8 +8,9 @@ function likes() {
         <ProfileLayout>
             {
                 tweets.map(t => (
-                    <HomeTweet key={t.id} imgs={t.images} text={t.text} />
-                ))
+                    <HomeTweet
+                      key={t.id} imgs={t.images} text={t.text} id={t.id}/>
+                  ))
             }
         </ProfileLayout>
     )

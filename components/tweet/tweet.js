@@ -1,17 +1,12 @@
 import Link from 'next/link'
-import Router, { useRouter } from 'next/router'
-import React, { useEffect } from 'react'
+import React from 'react'
 import { CommentIcon, FavouriteIcon, MoreIcon, RetweetIcon, ShareIcon } from '../icons'
 import TweetImages from './tweet-images'
-import TweetModal from './tweet-modal'
 
-function HomeTweet({ id, imgs, text, quotation, noIcons, prevUrl }) {
-    const router = useRouter()
+function HomeTweet({ id, imgs, text, quotation, noIcons }) {
 
     return (
         <>
-            
-
             <div className="flex pt-3 border w-full border-r px-4 hover:bg-gray-50 cursor-pointer">
                 <Link href="/username">
                     <a className="bg-black rounded-full w-12 h-12 flex-shrink-0"></a>
@@ -40,7 +35,7 @@ function HomeTweet({ id, imgs, text, quotation, noIcons, prevUrl }) {
                     </Link>
                     {
                         imgs && imgs.length > 0 &&
-                        <TweetImages imgs={imgs} id={id}/>
+                        <TweetImages id={id}/>
                     }
                     {
                         quotation &&

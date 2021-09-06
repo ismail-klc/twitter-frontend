@@ -5,7 +5,6 @@ import Home from '../../../../index'
 
 function TweetPhotoDetail() {
     const router = useRouter()
-    console.log(12);
 
     useEffect(() => {
         if (window.history.length === 1 && router.query.username) {
